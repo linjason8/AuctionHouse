@@ -4,6 +4,7 @@
 - Full GUI for client side
 - Utility .jars for server side.
 
+![Image Unavailable](https://github.com/linjason8/AuctionHouse/blob/master/login.png?raw=true)
 
 ## Usage (Server):
 - To start the server, first run “Stop Server.jar” to ensure that any pre-existing instances of the server are closed. If you wish to reset the cloud database, run “Reset Server.jar”. This will delete all existing user accounts and reset the items to a few pre-set item listings. Finally, to start the server itself, run “server.jar”. Now, clients are free to connect using “client.jar”.
