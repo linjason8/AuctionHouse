@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="1700.0" style="-fx-background-color: #E4E6F2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controller2">
+   <top>
+      <Pane prefHeight="80.0" prefWidth="200.0" style="-fx-background-color: #D6DBFD;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="46.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../house-logo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="91.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UCTION" wrappingWidth="165.333251953125">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#2c59c0" layoutX="160.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOUSE" wrappingWidth="165.333251953125">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Hyperlink layoutX="306.0" layoutY="27.0" onAction="#goHome" style="-fx-border-color: transparent;" text="Home" textFill="#000001">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="434.0" layoutY="27.0" onAction="#openSettings" prefHeight="30.0" prefWidth="120.0" style="-fx-border-color: transparent;" text="Account" textFill="#000001">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="580.0" layoutY="27.0" onAction="#newListing" prefHeight="30.0" prefWidth="120.0" style="-fx-border-color: transparent;" text="New Listing" textFill="#000001">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+   </top>
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1700.0" BorderPane.alignment="CENTER">
+         <children>
+            <Pane fx:id="homePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1700.0" style="-fx-background-color: #f7f7f7;">
+               <children>
+                  <TableView fx:id="table" layoutX="564.0" layoutY="75.0" prefHeight="550.0" prefWidth="1086.0">
+                    <columns>
+                      <TableColumn fx:id="nameCol" prefWidth="83.0" resizable="false" text="Item" />
+                        <TableColumn fx:id="statusCol" prefWidth="78.0" text="Status" />
+                        <TableColumn fx:id="descCol" prefWidth="355.0" resizable="false" text="Description" />
+                        <TableColumn fx:id="bidCol" prefWidth="115.3333740234375" resizable="false" text="Current Bid ($)" />
+                        <TableColumn fx:id="bidderCol" prefWidth="167.6666259765625" resizable="false" text="Bidder" />
+                        <TableColumn fx:id="buyCol" prefWidth="130.6666259765625" resizable="false" text="&quot;Buy Now&quot; Price ($)" />
+                        <TableColumn fx:id="endCol" prefWidth="153.0" resizable="false" text="End Time" />
+                    </columns>
+                  </TableView>
+                  <Text layoutX="50.0" layoutY="673.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Auction History" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="notifs" layoutX="50.0" layoutY="687.0" prefHeight="125.0" prefWidth="1600.0" style="-fx-wrap-text: true;" text="Server started... Auction begins! (or continues)">
+                     <font>
+                        <Font name="SansSerif Regular" size="15.0" />
+                     </font>
+                  </TextArea>
+                  <Rectangle fx:id="userRect1" arcHeight="5.0" arcWidth="5.0" fill="#d6dbfd" height="550.0" layoutX="50.0" layoutY="75.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="464.0" />
+                  <Text fx:id="balance" layoutX="50.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Balance&gt;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="name" layoutX="70.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select item" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="desc" layoutX="70.0" layoutY="125.0" prefHeight="100.0" prefWidth="207.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
+                  </TextArea>
+                  <BorderPane layoutX="300.0" layoutY="125.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0">
+                     <center>
+                        <ImageView fx:id="image" fitHeight="100.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+                     </center>
+                  </BorderPane>
+                  <Text layoutX="70.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="status" fill="#00c300" layoutX="130.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Available" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="status2" fill="RED" layoutX="130.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Closed" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="bid" layoutX="70.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Bid: " wrappingWidth="450.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="buyNow" layoutX="70.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Buy Now&quot; Price: " wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="70.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place Bid" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Pane fx:id="bidPane" layoutX="50.0" layoutY="350.0" prefHeight="109.0" prefWidth="464.0">
+                     <children>
+                        <Text layoutX="20.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bid Amount: $" wrappingWidth="366.6667022705078">
+                           <font>
+                              <Font name="Berlin Sans FB" size="20.0" />
+                           </font>
+                        </Text>
+                        <TextField fx:id="bidAmt" layoutX="142.0" layoutY="48.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#placeBid" prefHeight="30.0" prefWidth="207.0" promptText="Enter Bid">
+                           <font>
+                              <Font name="Berlin Sans FB" size="20.0" />
+                           </font>
+                        </TextField>
+                        <Button layoutX="365.0" layoutY="48.0" mnemonicParsing="false" onAction="#placeBid" prefHeight="30.0" prefWidth="82.0" style="-fx-background-color: #2c59c0;" text="Place Bid" textFill="WHITE">
+                           <font>
+                              <Font name="Berlin Sans FB" size="12.0" />
+                           </font>
+                        </Button>
+                        <Text fx:id="error" fill="RED" layoutX="142.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Error&gt;" wrappingWidth="366.6667022705078">
+                           <font>
+                              <Font name="Berlin Sans FB" size="15.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+                  <Text fx:id="closed" layoutX="70.0" layoutY="420.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Error&gt;" wrappingWidth="424.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Line endX="1.0" endY="550.0" layoutX="539.0" layoutY="75.0" />
+                  <Text fx:id="name1" layoutX="70.0" layoutY="490.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item History" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <ListView fx:id="hist" layoutX="70.0" layoutY="505.0" prefHeight="100.0" prefWidth="424.0" />
+                  <Text layoutX="565.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:" wrappingWidth="366.6667022705078">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="search" layoutX="629.0" layoutY="36.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#updateTable" prefHeight="30.0" prefWidth="635.0">
+                     <font>
+                        <Font name="SansSerif Regular" size="15.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="1550.0" layoutY="36.0" mnemonicParsing="false" onAction="#reset" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #2c59c0;" text="Reset" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Button>
+                  <CheckBox layoutX="1279.0" layoutY="43.0" mnemonicParsing="false" onAction="#toggleHide" text="Hide Closed Auctions">
+                     <font>
+                        <Font name="Berlin Sans FB" size="12.0" />
+                     </font>
+                  </CheckBox>
+               </children>
+            </Pane>
+            <Pane fx:id="acctPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1700.0">
+               <children>
+                  <ImageView fitHeight="750.0" fitWidth="1500.0" layoutX="100.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../bg.png" />
+                     </image>
+                  </ImageView>
+                  <Hyperlink layoutX="124.0" layoutY="79.0" onAction="#goHome" style="-fx-border-color: transparent;" text="&lt;   Back Home" textFill="#000001">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Text layoutX="744.0" layoutY="266.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Change Password">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="635.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old Password:">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="621.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password: ">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="578.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirm Password: ">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="715.0" layoutY="516.0" mnemonicParsing="false" onAction="#updatePass" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: #2c59c0;" text="Update" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Button>
+                  <Text fx:id="passError" fill="RED" layoutX="847.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Error&gt;">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Text>
+                  <PasswordField fx:id="oldPass" layoutX="840.0" layoutY="297.0" onAction="#updatePass" prefHeight="40.0" prefWidth="250.0" />
+                  <PasswordField fx:id="newPass1" layoutX="840.0" layoutY="357.0" onAction="#updatePass" prefHeight="40.0" prefWidth="250.0" />
+                  <PasswordField fx:id="newPass2" layoutX="840.0" layoutY="417.0" onAction="#updatePass" prefHeight="40.0" prefWidth="250.0" />
+                  <Text fx:id="passSuc" fill="#00c707" layoutX="847.0" layoutY="482.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password changed!">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="fundsPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1700.0">
+               <children>
+                  <ImageView fitHeight="750.0" fitWidth="1500.0" layoutX="100.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../bg.png" />
+                     </image>
+                  </ImageView>
+                  <Hyperlink layoutX="124.0" layoutY="79.0" onAction="#goHome" style="-fx-border-color: transparent;" text="&lt;   Back Home" textFill="#000001">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Text layoutX="200.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Funds" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="balance1" layoutX="198.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Balance&gt;" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="450.0" layoutX="200.0" layoutY="260.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent;" width="1300.0" />
+                  <Text layoutX="230.0" layoutY="300.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Information" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#989898" layoutX="230.0" layoutY="350.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Card Number (Credit or Debit)" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="cardNo" layoutX="228.0" layoutY="363.0" onAction="#addBtn" prefWidth="550.0" promptText="1234 1234 1234 1234">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#989898" layoutX="230.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expiration Date" wrappingWidth="148.26025390625">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="exp" layoutX="228.0" layoutY="458.0" onAction="#addBtn" prefHeight="45.0" prefWidth="250.0" promptText="MM / YY">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cvc" layoutX="528.0" layoutY="458.0" onAction="#addBtn" prefHeight="45.0" prefWidth="250.0" promptText="CVC">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#989898" layoutX="531.0" layoutY="445.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Code" wrappingWidth="148.26025390625">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <CheckBox fx:id="save" layoutX="530.0" layoutY="553.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="158.0" text="Save Card">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </CheckBox>
+                  <Button layoutX="228.0" layoutY="616.0" mnemonicParsing="false" onAction="#addBtn" prefHeight="45.0" prefWidth="550.0" style="-fx-background-color: #2c59c0;" text="Add Funds" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="depo" layoutX="228.0" layoutY="545.0" onAction="#addBtn" prefHeight="45.0" prefWidth="250.0" promptText="ex: 10.00">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#989898" layoutX="228.0" layoutY="536.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Deposit Amount ($)" wrappingWidth="200.0">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="48.0" fitWidth="43.0" layoutX="730.0" layoutY="364.0" opacity="0.39" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../creditcard.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="267.0" fitWidth="433.0" layoutX="940.0" layoutY="348.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../cc.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="cardError" fill="RED" layoutX="229.0" layoutY="695.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Error&gt;" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane fx:id="successPane" prefHeight="870.0" prefWidth="1700.0">
+               <children>
+                  <ImageView fitHeight="750.0" fitWidth="1500.0" layoutX="100.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../bg.png" />
+                     </image>
+                  </ImageView>
+                  <Hyperlink layoutX="124.0" layoutY="79.0" onAction="#goHome" style="-fx-border-color: transparent;" text="&lt;   Back Home" textFill="#000001">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="747.0" layoutY="245.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../check.png" />
+                     </image>
+                  </ImageView>
+                  <Text layoutX="757.0" layoutY="491.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Success!" textAlignment="CENTER" wrappingWidth="180.8033447265625">
+                     <font>
+                        <Font name="Berlin Sans FB" size="50.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="newBal" layoutX="421.0" layoutY="566.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Balance&gt;" textAlignment="CENTER" wrappingWidth="849.9999999999999">
+                     <font>
+                        <Font name="Berlin Sans FB" size="50.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="727.0" layoutY="609.0" mnemonicParsing="false" onAction="#goHome" prefHeight="53.0" prefWidth="244.0" style="-fx-background-color: #2c59c0;" text="OK" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane fx:id="listingPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="870.0" prefWidth="1700.0">
+               <children>
+                  <ImageView fitHeight="750.0" fitWidth="1500.0" layoutX="100.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../bg.png" />
+                     </image>
+                  </ImageView>
+                  <Hyperlink layoutX="124.0" layoutY="79.0" onAction="#goHome" style="-fx-border-color: transparent;" text="&lt;   Back Home" textFill="#000001">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Hyperlink>
+                  <Text layoutX="200.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create New Listing" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="500.0" layoutX="200.0" layoutY="210.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: transparent;" width="1300.0" />
+                  <Text layoutX="230.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Information" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="30.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#989898" layoutX="230.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Item Name" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="itemName" layoutX="230.0" layoutY="305.0" onAction="#createListing" prefWidth="575.0" promptText="ex: Hot Dog">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#989898" layoutX="230.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="148.26025390625">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="listingError" fill="RED" layoutX="235.0" layoutY="691.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Error&gt;" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="itemDesc" layoutX="230.0" layoutY="390.0" prefHeight="270.0" prefWidth="575.0" promptText="Optional">
+                     <font>
+                        <Font name="Berlin Sans FB" size="24.0" />
+                     </font>
+                  </TextArea>
+                  <Text fill="#989898" layoutX="895.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Starting Price ($)" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="itemPrice" layoutX="895.0" layoutY="305.0" onAction="#createListing" prefWidth="575.0" promptText="ex: 19.99">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#989898" layoutX="895.0" layoutY="380.0" strokeType="OUTSIDE" strokeWidth="0.0" text="&quot;Buy Now&quot; Price ($)" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="itemBN" layoutX="895.0" layoutY="390.0" onAction="#createListing" prefWidth="575.0" promptText="ex: 19.99">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#989898" layoutX="895.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Time" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="itemEnd" layoutX="895.0" layoutY="475.0" onAction="#createListing" prefWidth="575.0" promptText="MM-dd-yyyy HH:mm">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Text fill="#989898" layoutX="895.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image Link" wrappingWidth="566.0380859375">
+                     <font>
+                        <Font name="Berlin Sans FB" size="20.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="itemImg" layoutX="895.0" layoutY="560.0" onAction="#createListing" prefWidth="575.0" promptText="Optional">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="895.0" layoutY="630.0" mnemonicParsing="false" onAction="#createListing" prefHeight="40.0" prefWidth="270.0" style="-fx-background-color: #2c59c0;" text="Create Listing" textFill="WHITE">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="1200.0" layoutY="630.0" mnemonicParsing="false" onAction="#cancelListing" prefHeight="40.0" prefWidth="270.0" text="Cancel">
+                     <font>
+                        <Font name="Berlin Sans FB" size="25.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+   </center>
+   <right>
+      <Pane fx:id="rightPane" prefHeight="200.0" prefWidth="0.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="-300.0" layoutY="-67.0" mnemonicParsing="false" onAction="#usermenu" prefHeight="54.0" prefWidth="270.0" style="-fx-background-color: #2c59c0;" />
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="-297.0" layoutY="-65.0" onMouseClicked="#usermenu" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../user.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="displayUser" fill="WHITE" layoutX="-243.0" layoutY="-33.0" onMouseClicked="#usermenu" strokeType="OUTSIDE" strokeWidth="0.0" text="&lt;Username&gt;" textAlignment="CENTER" wrappingWidth="170.666748046875">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="-62.0" layoutY="-32.0" onMouseClicked="#usermenu" strokeType="OUTSIDE" strokeWidth="0.0" text="▼">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <Rectangle fx:id="userRect" arcHeight="5.0" arcWidth="5.0" fill="#587ed6" height="137.0" layoutX="-300.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="270.0" />
+            <Hyperlink fx:id="sign" layoutX="-107.0" layoutY="55.0" onAction="#signout" style="-fx-border-color: transparent;" text="Sign Out" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="quit" layoutX="-81.0" layoutY="85.0" onAction="#exit" style="-fx-border-color: transparent;" text="Quit" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="acct" layoutX="-155.0" layoutY="25.0" onAction="#openSettings" prefHeight="25.0" prefWidth="117.0" style="-fx-border-color: transparent;" text="Account Settings" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink fx:id="fund" layoutX="-120.0" layoutY="-5.0" onAction="#addFunds" prefHeight="25.0" prefWidth="84.0" style="-fx-border-color: transparent;" text="Add Funds" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="Berlin Sans FB" size="15.0" />
+               </font>
+            </Hyperlink>
+         </children>
+      </Pane>
+   </right>
+</BorderPane>

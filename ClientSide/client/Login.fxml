@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane fx:id="pane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="960.0" prefWidth="1707.0" style="-fx-background-color: #E4E6F2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Controller">
+   <center>
+      <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="760.0" prefWidth="1505.0" style="-fx-background-image: url('login-bg.png');" BorderPane.alignment="CENTER">
+         <children>
+            <Text layoutX="925.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN" wrappingWidth="644.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="40.0" />
+               </font>
+            </Text>
+            <Text layoutX="925.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="268.4445037841797">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="925.0" layoutY="330.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="268.4445037841797">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="user" layoutX="925.0" layoutY="240.0" onAction="#login" prefHeight="40.0" prefWidth="400.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Button layoutX="925.0" layoutY="420.0" mnemonicParsing="false" onAction="#login" prefHeight="40.0" prefWidth="400.0" style="-fx-background-color: #2c59c0;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="SansSerif Bold" size="20.0" />
+               </font></Button>
+            <Text fx:id="error" fill="RED" layoutX="925.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" style="visibility: false;" text="Username or password incorrect" wrappingWidth="404.4445037841797">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Button layoutX="925.0" layoutY="480.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="400.0" text="Exit">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Button>
+            <Text fill="WHITE" layoutX="100.0" layoutY="600.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back" wrappingWidth="613.3333129882812">
+               <font>
+                  <Font name="Berlin Sans FB" size="82.0" />
+               </font>
+            </Text>
+            <Text layoutX="925.0" layoutY="550.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Don't have an account?             " textAlignment="CENTER" wrappingWidth="400.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text layoutX="925.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" text="or" textAlignment="CENTER" wrappingWidth="400.0">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Hyperlink layoutX="1044.0" layoutY="570.0" onAction="#guest" text="Continue as Guest">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Hyperlink>
+            <Hyperlink layoutX="1191.0" layoutY="529.0" onAction="#signup" text="Sign up">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Hyperlink>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="1234.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../house-logo.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="1280.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UCTION" wrappingWidth="165.333251953125">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="#2c59c0" layoutX="1350.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="HOUSE" wrappingWidth="165.333251953125">
+               <font>
+                  <Font name="Berlin Sans FB" size="20.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="100.0" layoutY="650.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login to access AuctionHouse" wrappingWidth="445.3333740234375">
+               <font>
+                  <Font name="Berlin Sans FB" size="30.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="487.0" fitWidth="450.0" layoutX="150.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../face.png" />
+               </image>
+            </ImageView>
+            <PasswordField fx:id="password" layoutX="925.0" layoutY="340.0" onAction="#login" prefHeight="40.0" prefWidth="400.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </PasswordField>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
